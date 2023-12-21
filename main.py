@@ -24,6 +24,15 @@ def extract_info(url):
     downloads_element = soup.find('td', {'itemprop': 'interactionCOunt'})
     downloads = downloads_element.text.strip if downloads_element else "Downloads not found"
 
+    book_info = {
+        "title": title,
+        "author": author,
+        "genre": genre,
+        "downloads": downloads
+    }
+
+    return book_info
+
 #response = requests.get('https://www.gutenberg.org/ebooks/600', HEADERS)
 #soup = BeautifulSoup(response.content, 'html.parser')
 #downloads_element = soup.find('td', {'itemprop': 'interactionCount'})
